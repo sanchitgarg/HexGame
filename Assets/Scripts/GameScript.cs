@@ -36,7 +36,7 @@ public class GameScript : MonoBehaviour {
 		// change anything in the hex prefab
 		// Or want to change the spacing.
 
-		createGameBoard ();
+		//createGameBoard ();
 
 		turn = 0;
 	}
