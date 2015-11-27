@@ -23,7 +23,7 @@ public class GameScript : MonoBehaviour {
 			for (int j=0; j<boardSize+2; ++j) {
 				
 				pos.x += (2.0f * rb.x);
-				Instantiate(hexModel, pos, Quaternion.Euler(0, 30, 0));
+				Instantiate(hexModel, new Vector3(pos.x * 0.87f, pos.y, pos.z * 0.75f), Quaternion.Euler(0, 30, 0));
 			}
 		}
 	}

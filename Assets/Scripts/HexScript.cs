@@ -24,6 +24,7 @@ public class HexScript : MonoBehaviour {
 	public static int index = 1;
 
 	GameScript globalObj;
+	AudioManagerScript audioManager;
 
 	public GameObject gameStateScript;
 
@@ -37,6 +38,9 @@ public class HexScript : MonoBehaviour {
 		//get the script associated with the object
 		GameObject g = GameObject.Find ("GameManager");
 		globalObj = g.GetComponent< GameScript >();
+
+		GameObject g2 = GameObject.Find ("AudioManager");
+		audioManager = g2.GetComponent< AudioManagerScript> ();
 
 		//Make color based on boundary
 		if (id == 1 || id == globalObj.boardSize + 2 || id == ((globalObj.boardSize + 2) * (globalObj.boardSize + 2)) || id == ((globalObj.boardSize + 1) * (globalObj.boardSize + 2) + 1)) {
@@ -101,6 +105,8 @@ public class HexScript : MonoBehaviour {
 	{
 		//Update the game board and see if someone wins
 		gameStateScript.GetComponent<GameStateScript>().updateGameBoard(id, turn);
+		audioManager.playBlockRise (gameObject.transform.position);
+
 		switch (turn) {
 		case 0:
 			color = COLOR.RED;
